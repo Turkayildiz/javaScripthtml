@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+<body>
+    
+    <label for="vize1">veze1 giriniz:</label> <br>
+    <input type="number" id="vize1" name="vize1"> <br>
+    <label for="vize2">vize2 giriniz</label> <br>
+    <input type="number" id="vize2" name="vize2"> <br>
+    <label for="final">final giriniz</label> <br>
+    <input type="number" id="final" name="final"> <br>
+
+    <script>
+        function hesapla(){
+            var vize1 = document.getElementById("vize1").value;
+            var vize2 = document.getElementById("vize2").value;
+            var final = document.getElementById("final").value;
+
+            var sonuc = (vize1 * 0.3) + (vize2 * 0.3) + (final * 0.4);
+
+            document.getElementById("sonuc").innerHTML = sonuc;
+        }
+    </script>
+   
+    <button onclick="hesapla()">Hesapla</button> <br>
+    <p id="sonuc"></p>
+
+</body>
+</html>
