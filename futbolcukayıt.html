@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Futbol Kayit Formu</h1>
+    <h3>Futbol Takimi icin kayitlar</h3>
+    <hr>
+    <label for="adiniz">Oyuncu ismi</label>
+    <input type="text" id="adiniz" placeholder="adiniz">
+    <input type="text" id="soyadiniz" placeholder="soyadiniz">
+    <br>
+    <br>
+    <label for="email">E-Posta</label>
+    <input type="email" id="email" placeholder="john@sample.com">   
+    <br>
+    <br>
+    <label for="takim">Oyuncu Takim Grubu</label>
+    <select id="takim">
+        <option value="ortaokul">Orta Okul</option>
+        <option value="lise">Lise</option>
+        <option value="universite">Universite</option>
+    </select>
+    <br>
+    <label for="boy">Boy</label>
+    <input type="text" id="boy">
+    <br>
+
+    <label for="kilo">Kilo</label>
+    <input type="text" id="kilo">
+    <br>
+
+    <button type="button" onclick="kaydet()">Kaydet</button>
+    <button type="button" onclick="kontrolEt()">Oku</button>
+    
+    <p id="sonuc"></p>
+    <script>
+        function kontrolEt()
+        {
+           let futbolcu= localStorage.getItem("futbolcu");
+           let myObj = JSON.parse(futbolcu);
+           console.log(futbolcu);
+           console.log(myObj)
+           let ad = document.getElementById("adiniz");
+            let soyad = document.getElementById("soyadiniz");
+            let email = document.getElementById("email");
+            let boy = document.getElementById("boy");
+            let kilo = document.getElementById("kilo");
+            let okul = document.getElementById("takim");
+            let sonuc = document.getElementById("sonuc");
+            ad.value=myObj.ad;
+            soyad.value=myObj.soyad;
+            email.value=myObj.email;
+            boy.value=myObj.boy;
+            kilo.value=myObj.kilo;
+            okul.value=myObj.takim;
+
+        }
+        function kaydet()
+        {
+            let ad = document.getElementById("adiniz");
+            let soyad = document.getElementById("soyadiniz");
+            let email = document.getElementById("email");
+            let boy = document.getElementById("boy");
+            let kilo = document.getElementById("kilo");
+            let okul = document.getElementById("takim");
+            let sonuc = document.getElementById("sonuc");
+            sonuc.style="color:red";
+            if(ad.value.length<=2)
+            {
+                sonuc.innerHTML="adiniz en az 3 karakter olmalidir <b";
+                return ;
+            }
+            if(soyad.value.length<=2)
+            {
+                sonuc.innerHTML="Soyadiniz en az 3 karakter olmalidir";
+                return ;
+            }
+            if(email.value.length<=5)
+            {
+                sonuc.innerHTML="Email uzunlugu en az 5 karakter olmali";
+                return ;
+            }
+            if(parseInt(boy.value)<=100)
+            {
+                sonuc.innerHTML="Boy en az 100 cm olmalidir ";
+                return ;
+            }
+            if(parseInt(kilo.value)<=40)
+            {
+                sonuc.innerHTML="Kilo en az 40  olmalidir ";
+                return ;
+            }
+            // javascript objesi
+            var futbolcu=
+            {
+                ad:ad.value,
+                soyad:soyad.value,
+                email:email.value,
+                boy:boy.value,
+                kilo:kilo.value,
+                takim:takim.value};
+            console.log(futbolcu);
+
+            localStorage.setItem("futbolcu", JSON.stringify(futbolcu));
+        }
+    </script>
+</body>
+</html>

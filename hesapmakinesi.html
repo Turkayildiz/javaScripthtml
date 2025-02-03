@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" id="displayText" placeholder="" disabled><br>
+    <button type="button" id="bir" onclick="ekle(this)">1</button>
+    <button type="button" id="iki" onclick="ekle(this)">2</button>
+    <button type="button" id="uc" onclick="ekle(this)">3</button> 
+    <button type="button" id="toplam" onclick="ekle(this)">+</button> 
+    <button type="button" id="bolme" onclick="ekle(this)">/</button>
+    <br>
+    <button type="button" id="dort" onclick="ekle(this)">4</button>
+    <button type="button" id="bes" onclick="ekle(this)">5</button>
+    <button type="button" id="alti" onclick="ekle(this)">6</button> 
+    <button type="button" id="cikartma" onclick="ekle(this)">-</button>
+    <button type="button" id="kalan" onclick="ekle(this)">%</button>
+    <br>
+    <button type="button" id="yedi" onclick="ekle(this)">7</button>
+    <button type="button" id="sekiz" onclick="ekle(this)">8</button>
+    <button type="button" id="dokuz" onclick="ekle(this)">9</button> 
+    <button type="button" id="carpma" onclick="ekle(this)">*</button>
+    <button type="button" id="esittir" onclick="ekle(this)">=</button>
+    <br>
+
+<script>
+ function ekle(btn)
+ {
+    let displayText =document.getElementById("displayText");
+    displayText.value =displayText.value+ btn.innerHTML;  
+    console.log(btn.innerHTML);
+ }
+
+</script>
+
+</body>
+</html>
