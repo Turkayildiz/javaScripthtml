@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <noscript>Sorry, your browser does not support JavaScript!</noscript>
+    <button type="button" onclick="windowSize()">Ekran Cozunurlugu</button>
+    <p id="p1"></p>
+    <form action="" method="post">
+        <label for="ad" id="lblAd">Adi</label> <br>
+        <input type="text" name="namead" id="ad">
+        <span  id="adAlert"></span><br>
+        <label for="soyad" id="lblSoyad">Soyadi</label> <br>
+        <input type="text" name="namesoyad" id="soyad"> 
+        <span  id="soyadAlert"></span><br>
+        <label for="tcno" id="lbltcno">TcNo</label> <br>
+        <input type="text" name="tcno" id="tcno"> 
+        <span  id="tcnoAlert"></span><br>
+        <button type="submit" onclick="checkForm()">Kaydet</button>
+    </form>
+    <button type="button" onclick="checkForm()">Kaydet 2</button>
+
+    <!-- <script>
+        let ad = document.getElementById("ad");
+    </script> -->
+</body>
+</html>
