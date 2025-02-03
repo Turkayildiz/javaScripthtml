@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function hesapla(){
+                var tutar = document.getElementById("tutar");
+                console.log(tutar.value);
+                var kdv = document.getElementById("kdv");
+                var hesaplananKdv = tutar.value * parseInt(kdv.value)/100;
+                console.log('Hesaplanan Kdv:'+hesaplananKdv);
+
+                var toplamTutar = parseInt(tutar.value)+parseFloat(hesaplananKdv);
+                console.log('Toplam Tutar:'+toplamTutar);
+                var sonuc = document.getElementById("sonuc");
+                sonuc.innerHTML="Toplam Tutar:"+toplamTutar;
+                kdv.value="";
+                tutar.value="";
+
+        }
+        function kdvDahil()
+        {
+            var tutar = document.getElementById("tutar");
+            
+            var kdv = document.getElementById("kdv");
+            var dahilKdv = tutar.value / (1+parseFloat(kdv.value/100));
+            var sonuc = document.getElementById("sonuc");
+            sonuc.innerHTML="Dahil olan kdv:" +dahilKdv;
+            kdv.value="";
+            tutar.value="";
+        }
+    </script>
+</head>
+<body>
+    <label for="tutar">Tutar</label>
+    <input type="text" id="tutar"> <br>
+    <label for="kdv">Kdv</label>
+    <input type="text" id="kdv"> <br>
+    <button type="button" id="btnHesapla" onclick="hesapla()">Kdv Hesapla</button>
+    <button type="button" id="btnHesap" onclick="kdvDahil()">Dahil Olan Kdv yi bulma</button>
+    
+    <p id="sonuc"></p>
+</body>
+</html>
